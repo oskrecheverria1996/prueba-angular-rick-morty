@@ -1,0 +1,35 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
+    <nb-card-body>
+        <h3>Personajes</h3>
+    </nb-card-body>
+</nb-card>
+
+<div class="row" *ngIf="!(isLoading$ | async)">
+    <div class="col-3" *ngFor="let character of listResult$ | async | paginate: { itemsPerPage: 30, currentPage: current_page, totalItems: totalItems }; let i = index;">
+        <nb-card (click)="openCharacter(character)">
+            <nb-card-header>
+                {{ character.name }}
+            </nb-card-header>
+            <nb-card-body class="p-0">
+                <div class="row">
+                    <div class="col-5">
+                        <img [src]="character.image" style="width: 100%; height: 100%;">
+                    </div>
+                    <div class="col-7 pt-2">
+                        <div class="subtitle">Estado:</div>
+                        <div>{{ character.status }}</div>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="col-12 mt-3">
+    <div class="row justify-content-center">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+        <div class="text-center">
+          <pagination-controls (pageChange)="changePage($event)" previousLabel="" nextLabel="" ></pagination-controls>
+        </div>
+      </div>
+    </div>
+</div>

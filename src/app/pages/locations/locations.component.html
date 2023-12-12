@@ -1,0 +1,28 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
+    <nb-card-body>
+        <h3>Locations</h3>
+    </nb-card-body>
+</nb-card>
+
+<div class="row" *ngIf="!(isLoading$ | async)">
+    <div class="col-3" *ngFor="let location of listResult$ | async | paginate: { itemsPerPage: 30, currentPage: current_page, totalItems: totalItems }; let i = index;">
+        <nb-card (click)="openLocation(location)">
+            <nb-card-header>
+                {{ location.name }}
+            </nb-card-header>
+            <nb-card-body>
+                <div class="subtitle">Tipo:</div>
+                <div>{{ location.type }}</div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="col-12 mt-3">
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+        <div class="text-center kstdy-font_paginator">
+          <pagination-controls (pageChange)="changePage($event)" previousLabel="" nextLabel="" ></pagination-controls>
+        </div>
+      </div>
+    </div>
+</div>

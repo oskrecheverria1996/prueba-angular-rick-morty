@@ -1,0 +1,16 @@
+<nb-card>
+    <nb-card-header>{{ location.name }}</nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-12">
+            <div class="subtitle">Tipo:</div>
+            <div>{{ location.type }}</div>
+            <div class="subtitle">Dimension:</div>
+            <div>{{ location.dimension }}</div>
+        </div>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton hero status="primary" (click)="dismiss()">Cerrar</button>
+    </nb-card-footer>
+</nb-card>
