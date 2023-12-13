@@ -1,18 +1,18 @@
 <nb-card class="col-md-12 col-lg-12 col-xxxl-12">
     <nb-card-body>
-        <h3>Ubicaciones</h3>
+        <h3>Episodios</h3>
     </nb-card-body>
 </nb-card>
 
 <div class="row" *ngIf="!(isLoading$ | async)">
-    <div class="col-3" *ngFor="let location of listResult$ | async | paginate: { itemsPerPage: 30, currentPage: current_page, totalItems: totalItems }; let i = index;">
-        <nb-card (click)="openLocation(location)">
+    <div class="col-3" *ngFor="let episode of listResult$ | async | paginate: { itemsPerPage: 20, currentPage: current_page, totalItems: totalItems }; let i = index;">
+        <nb-card (click)="openLocation(episode)">
             <nb-card-header>
-                {{ location.name }}
+                {{ episode.name }}
             </nb-card-header>
             <nb-card-body>
-                <div class="subtitle">Tipo:</div>
-                <div>{{ location.type }}</div>
+                <div class="subtitle">Fecha:</div>
+                <div>{{ episode.air_date }}</div>
             </nb-card-body>
         </nb-card>
     </div>

@@ -26,7 +26,6 @@ export class ApiServicesService {
       });
   }
 
-   
   fnHttpGetLocations(page): Observable<any> {
     return this.http.get(this.fnGetHost() + `location?page=${page}`,
       {
@@ -34,6 +33,13 @@ export class ApiServicesService {
         reportProgress: true,
       });
   }
-
+   
+  fnHttpGetEpisodes(page): Observable<any> {
+    return this.http.get(this.fnGetHost() + `episode?page=${page}`,
+      {
+        observe: 'response',
+        reportProgress: true,
+      });
+  }
 
 }

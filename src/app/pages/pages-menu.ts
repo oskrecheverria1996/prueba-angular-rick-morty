@@ -12,4 +12,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'pin',
     link: '/pages/locations',
   },
+  {
+    title: 'Episodios',
+    icon: 'tv',
+    link: '/pages/episodes',
+  },
 ];
